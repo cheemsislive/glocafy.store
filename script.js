@@ -15,6 +15,8 @@ window.onload = function () {
     } else {
         // Logic for Collection Pages to make Images Clickable
         makeImagesClickable();
+        // Update cards with Sale tag, Price and Buy Button
+        updateProductCards();
     }
 }
 
@@ -38,6 +40,44 @@ function makeImagesClickable() {
     });
 }
 
+
+function updateProductCards() {
+    const cards = document.querySelectorAll('.product-card');
+    cards.forEach(card => {
+        // Check if Polaroid
+        const title = card.querySelector('.product-title').innerText;
+        if (title.toLowerCase().includes('polaroids')) return; // SKIP POLAROIDS
+
+        // 1. Add Sale Tag
+        if (!card.querySelector('.sale-tag')) {
+            const saleTag = document.createElement('div');
+            saleTag.className = 'sale-tag';
+            saleTag.innerText = 'SALE';
+            card.appendChild(saleTag);
+        }
+
+        // 2. Update Price
+        const priceEl = card.querySelector('.product-price');
+        if (priceEl) {
+            priceEl.innerHTML = `<span class="original-price-card">₹99</span> ₹75`;
+        }
+
+        // 3. Add Buy Now Button
+        const info = card.querySelector('.product-info');
+        if (info && !info.querySelector('.buy-btn')) {
+            const buyBtn = document.createElement('button');
+            buyBtn.className = 'buy-btn';
+            buyBtn.innerText = 'Buy Now';
+            buyBtn.onclick = function () {
+                const message = `Hello, I want to buy:\n\nPoster: ${title}\nPrice: ₹75\n\nPlease confirm availability.`;
+                const phoneNumber = "9715556804";
+                window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+            };
+            info.appendChild(buyBtn);
+        }
+    });
+}
+
 function loadProductPage() {
     const params = new URLSearchParams(window.location.search);
     const imgSrc = params.get('image');
@@ -45,6 +85,15 @@ function loadProductPage() {
 
     if (imgSrc) document.getElementById('mainProductImg').src = imgSrc;
     if (title) document.getElementById('productTitle').innerText = title;
+
+    // Remove Size Selector for Polaroids
+    if (title && title.toLowerCase().includes('polaroid')) {
+        const sizeSelector = document.querySelector('.size-selector');
+        if (sizeSelector) sizeSelector.style.display = 'none';
+
+        // Also update description if needed, or hide GSM info? 
+        // For now just hiding size as requested.
+    }
 
     // Populate Suggested Products (Random/Static for now)
     const suggestedContainer = document.getElementById('suggestedProducts');
@@ -60,11 +109,13 @@ function loadProductPage() {
         suggestions.forEach(item => {
             const html = `
                 <div class="product-card">
+                    <div class="sale-tag">SALE</div>
                     <img src="${item.img}" style="cursor:pointer" onclick="window.location.href='product.html?image=${encodeURIComponent(item.img)}&title=${encodeURIComponent(item.title)}'">
                     <div class="product-info">
                         <div class="product-title">${item.title}</div>
-                         <div class="product-price">₹15</div>
+                         <div class="product-price"><span class="original-price-card">₹99</span> ₹75</div>
                         <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+                        <button class="buy-btn" onclick="window.open('https://wa.me/9715556804?text=I want to buy ${encodeURIComponent(item.title)}', '_blank')">Buy Now</button>
                     </div>
                 </div>
              `;
