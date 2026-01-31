@@ -24,6 +24,91 @@ window.onload = function () {
 
     // Initialize Reviews Logic
     initReviews();
+
+    // Initialize Search & Toast
+    initSearchAndToast();
+}
+
+/* === SEARCH & TOAST LOGIC === */
+function initSearchAndToast() {
+    // 1. Inject HTML
+    const searchToastHTML = `
+    <!-- TOAST -->
+    <div class="toast-notification" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMsg">Action Successful</span>
+    </div>
+
+    <!-- SEARCH OVERLAY -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="close-search" onclick="closeSearch()"><i class="fas fa-times"></i></div>
+        <div class="search-input-box">
+            <input type="text" id="searchInput" placeholder="Search for posters..." onkeyup="performSearch()">
+        </div>
+        <div class="search-results" id="searchResults"></div>
+    </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', searchToastHTML);
+}
+
+function showToast(msg) {
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toastMsg');
+    if (toast && toastMsg) {
+        toastMsg.innerText = msg;
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+}
+
+function openSearch() {
+    document.getElementById('searchOverlay').classList.add('open');
+    document.getElementById('searchInput').focus();
+}
+
+function closeSearch() {
+    document.getElementById('searchOverlay').classList.remove('open');
+}
+
+// Dummy Product List for Search (Ideally this comes from a backend or analyzing DOM)
+const allProducts = [
+    { title: "Car Poster", img: "cars/00acefa25971025f8e900e39fcac1ff7.jpg" },
+    { title: "Anime Poster", img: "anime/061d0886b23129dfb971874d079d9112.jpg" },
+    { title: "Batman Dark Knight", img: "collections/batman.jpg" }, // Example
+    { title: "Friends TV Show", img: "polaroids/4415db45eeb715c38c61d9f59fe10bbb.jpg" },
+    { title: "Spiderman", img: "collections/spiderman.jpg" }, // Example
+    { title: "Marvel Avengers", img: "polaroids/7e7b0695c28741fb9dc0a9b6054e22d8.jpg" }
+];
+
+function performSearch() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const resultsContainer = document.getElementById('searchResults');
+    resultsContainer.innerHTML = '';
+
+    if (input.length < 2) return;
+
+    // Filter logic (using mock data for demo, or we could scrape DOM)
+    // For a static site, we might need a bigger list or scrape from index.html
+    const filtered = allProducts.filter(p => p.title.toLowerCase().includes(input));
+
+    if (filtered.length === 0) {
+        resultsContainer.innerHTML = '<div style="color:Gray">No results found</div>';
+    } else {
+        filtered.forEach(p => {
+            const el = document.createElement('div');
+            el.className = 'search-result-item';
+            el.onclick = () => {
+                window.location.href = `product.html?image=${encodeURIComponent(p.img)}&title=${encodeURIComponent(p.title)}`;
+            };
+            el.innerHTML = `
+                <img src="${p.img}">
+                <div class="title">${p.title}</div>
+             `;
+            resultsContainer.appendChild(el);
+        });
+    }
 }
 
 function initReviews() {
@@ -148,7 +233,7 @@ function submitReview() {
     document.getElementById('reviewName').value = '';
     document.getElementById('reviewText').value = '';
 
-    alert("Thank you for your review!");
+    showToast("Review Submitted! ❤️");
 }
 function addInstaNotification() {
     const notif = document.createElement('a');
