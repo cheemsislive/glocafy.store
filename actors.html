@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actors Posters - Glocafy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- RUNNING TEXT (TOP) -->
+    <div class="marquee">
+        <span>🔥 Valentine Offer Live — Posters Starting From ₹15 — Bulk Orders Available — WhatsApp Now 🔥</span>
+    </div>
+
+    <nav>
+        <div class="menu-icon"><i class="fas fa-bars"></i></div>
+        <a href="index.html" class="logo-area">
+            <div class="logo"></div>
+            <div class="store-name">Glocafy Posters</div>
+        </a>
+        <div class="cart-box" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <div class="cart-count" id="cartCount">0</div>
+        </div>
+    </nav>
+
+    <div class="hero" style="background-image: url('actors/068b74b6ae60debc932360d99039ffd1.jpg');">
+        <div class="hero-overlay">
+            <h1>Actor Posters</h1>
+            <p>Bollywood • Hollywood • Tollywood</p>
+        </div>
+    </div>
+
+    <div class="section-title">Latest Collection</div>
+
+    <div class="product-grid">
+
+        <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+            <img src="actors/068b74b6ae60debc932360d99039ffd1.jpg" loading="lazy" alt="actors Poster 1">
+            <div class="product-info">
+                <div class="product-title">actors Poster 1</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="actors/08d9286dc440b3d419724ac898005358.jpg" loading="lazy" alt="actors Poster 2">
+            <div class="product-info">
+                <div class="product-title">actors Poster 2</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="actors/0a974a6d2c77608dd298434fd60ef17c.jpg" loading="lazy" alt="actors Poster 3">
+            <div class="product-info">
+                <div class="product-title">actors Poster 3</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <img src="actors/0cff17849f65348e37f125a84abd625d.jpg" loading="lazy" alt="actors Poster 4">
+            <div class="product-info">
+                <div class="product-title">actors Poster 4</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+            <img src="actors/16bde7458eb368bebc2dde7762b46d0a.jpg" loading="lazy" alt="actors Poster 5">
+            <div class="product-info">
+                <div class="product-title">actors Poster 5</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+            <img src="actors/281b763cfb921db30f9cc26e6b1b0582.jpg" loading="lazy" alt="actors Poster 6">
+            <div class="product-info">
+                <div class="product-title">actors Poster 6</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+            <img src="actors/2fb267feef2d87fc85705141bb16c2fa.jpg" loading="lazy" alt="actors Poster 7">
+            <div class="product-info">
+                <div class="product-title">actors Poster 7</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="actors/2fc0f605b74c112575650204c11ccd8d.jpg" loading="lazy" alt="actors Poster 8">
+            <div class="product-info">
+                <div class="product-title">actors Poster 8</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="actors/33c874a840906367d8ba5ba1ad2d8c47.jpg" loading="lazy" alt="actors Poster 9">
+            <div class="product-info">
+                <div class="product-title">actors Poster 9</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <img src="actors/4091a01cafde3b2e48c26e3fde35337a.jpg" loading="lazy" alt="actors Poster 10">
+            <div class="product-info">
+                <div class="product-title">actors Poster 10</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+            <img src="actors/42fbcbefe89cab9e2fb5336232ba8201.jpg" loading="lazy" alt="actors Poster 11">
+            <div class="product-info">
+                <div class="product-title">actors Poster 11</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+            <img src="actors/4aa60e2081e22372415a234e4f5bec15.jpg" loading="lazy" alt="actors Poster 12">
+            <div class="product-info">
+                <div class="product-title">actors Poster 12</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+            <img src="actors/4f134caa1ad7844782f22a93ac7611dc.jpg" loading="lazy" alt="actors Poster 13">
+            <div class="product-info">
+                <div class="product-title">actors Poster 13</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="actors/510ac004bcf244982dc36c594e4ec0ba.jpg" loading="lazy" alt="actors Poster 14">
+            <div class="product-info">
+                <div class="product-title">actors Poster 14</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="actors/545893038ffb14748adec9147d0e3c0b.jpg" loading="lazy" alt="actors Poster 15">
+            <div class="product-info">
+                <div class="product-title">actors Poster 15</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <img src="actors/54703a8b8e120cb86fdbc5c147a23b5e.jpg" loading="lazy" alt="actors Poster 16">
+            <div class="product-info">
+                <div class="product-title">actors Poster 16</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+            <img src="actors/5689c7413b40c436bca4ac0b62d4fcd5.jpg" loading="lazy" alt="actors Poster 17">
+            <div class="product-info">
+                <div class="product-title">actors Poster 17</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+            <img src="actors/57c1dd1a9af4196960476cfaf5789c54.jpg" loading="lazy" alt="actors Poster 18">
+            <div class="product-info">
+                <div class="product-title">actors Poster 18</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+            <img src="actors/594e0aa9da1526499077e185ffe0f5f6.jpg" loading="lazy" alt="actors Poster 19">
+            <div class="product-info">
+                <div class="product-title">actors Poster 19</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="actors/6298641d7e84d5c9e304009196615692.jpg" loading="lazy" alt="actors Poster 20">
+            <div class="product-info">
+                <div class="product-title">actors Poster 20</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="actors/678c7acea0d42257adea765b6f4dfcf1.jpg" loading="lazy" alt="actors Poster 21">
+            <div class="product-info">
+                <div class="product-title">actors Poster 21</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <img src="actors/6c4d7443bb5d60b53b080a8c268b9c7f.jpg" loading="lazy" alt="actors Poster 22">
+            <div class="product-info">
+                <div class="product-title">actors Poster 22</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+            <img src="actors/74dc72171d0ad392f4cb2037eac86de2.jpg" loading="lazy" alt="actors Poster 23">
+            <div class="product-info">
+                <div class="product-title">actors Poster 23</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+            <img src="actors/752980db73d83e0d50086ff6322d3a49.jpg" loading="lazy" alt="actors Poster 24">
+            <div class="product-info">
+                <div class="product-title">actors Poster 24</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+            <img src="actors/7bbe3548eae06dd3ed5e79654a3b0deb.jpg" loading="lazy" alt="actors Poster 25">
+            <div class="product-info">
+                <div class="product-title">actors Poster 25</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="actors/7d5dd575b2cb3cbd90d2103282d3bc80.jpg" loading="lazy" alt="actors Poster 26">
+            <div class="product-info">
+                <div class="product-title">actors Poster 26</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="actors/8377b7eeccb43a6a8c0277b9017457ce.jpg" loading="lazy" alt="actors Poster 27">
+            <div class="product-info">
+                <div class="product-title">actors Poster 27</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <img src="actors/83b9fa10a39da552a59b02365579b5c8.jpg" loading="lazy" alt="actors Poster 28">
+            <div class="product-info">
+                <div class="product-title">actors Poster 28</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+            <img src="actors/8e9b4130491558b202db5e73c24b1704.jpg" loading="lazy" alt="actors Poster 29">
+            <div class="product-info">
+                <div class="product-title">actors Poster 29</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+            <img src="actors/8f4a7f13ea4847812b9123e82752c696.jpg" loading="lazy" alt="actors Poster 30">
+            <div class="product-info">
+                <div class="product-title">actors Poster 30</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+            <img src="actors/918697e163558ad3b64e33719f65d15b.jpg" loading="lazy" alt="actors Poster 31">
+            <div class="product-info">
+                <div class="product-title">actors Poster 31</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="actors/92b3ac2b2e3d29612c57f68cc955b89d (1).jpg" loading="lazy" alt="actors Poster 32">
+            <div class="product-info">
+                <div class="product-title">actors Poster 32</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="actors/95f1e12aa62c1458b69e7b06c7035c61.jpg" loading="lazy" alt="actors Poster 33">
+            <div class="product-info">
+                <div class="product-title">actors Poster 33</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <img src="actors/a37948636c3279f09560bcf0067e00bd.jpg" loading="lazy" alt="actors Poster 34">
+            <div class="product-info">
+                <div class="product-title">actors Poster 34</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+            <img src="actors/a42ae49559e7a66dca3af4fe590b6aa1.jpg" loading="lazy" alt="actors Poster 35">
+            <div class="product-info">
+                <div class="product-title">actors Poster 35</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+            <img src="actors/a8d4813a8f519987927ad02b9f21be02.jpg" loading="lazy" alt="actors Poster 36">
+            <div class="product-info">
+                <div class="product-title">actors Poster 36</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+            <img src="actors/acd538f190ef0ce78f78e574e1966aab.jpg" loading="lazy" alt="actors Poster 37">
+            <div class="product-info">
+                <div class="product-title">actors Poster 37</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="actors/ad008ea7994624dbde659b69358bcc8d.jpg" loading="lazy" alt="actors Poster 38">
+            <div class="product-info">
+                <div class="product-title">actors Poster 38</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="actors/adfb2140ffd748123c1c69bc6bb85089 (1).jpg" loading="lazy" alt="actors Poster 39">
+            <div class="product-info">
+                <div class="product-title">actors Poster 39</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <img src="actors/b39d00063f4ad9354ebacfc8940d5dee.jpg" loading="lazy" alt="actors Poster 40">
+            <div class="product-info">
+                <div class="product-title">actors Poster 40</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+            <img src="actors/bb40f51f631b90fd69b0b66c5ad39b28.jpg" loading="lazy" alt="actors Poster 41">
+            <div class="product-info">
+                <div class="product-title">actors Poster 41</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+            <img src="actors/bfb0446e2939c894dcb9a5a531a40970.jpg" loading="lazy" alt="actors Poster 42">
+            <div class="product-info">
+                <div class="product-title">actors Poster 42</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+            <img src="actors/c0246d79adafe49299913fae59355b64.jpg" loading="lazy" alt="actors Poster 43">
+            <div class="product-info">
+                <div class="product-title">actors Poster 43</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="actors/c12fae293860de978fade32b15eb77b5.jpg" loading="lazy" alt="actors Poster 44">
+            <div class="product-info">
+                <div class="product-title">actors Poster 44</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="actors/c23c71169d288e71dec981cd80c2f3ea.jpg" loading="lazy" alt="actors Poster 45">
+            <div class="product-info">
+                <div class="product-title">actors Poster 45</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <img src="actors/c29a4d85fc373364b35c9068125d7ef4.jpg" loading="lazy" alt="actors Poster 46">
+            <div class="product-info">
+                <div class="product-title">actors Poster 46</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+            <img src="actors/c47203d3a771e769a785041a16197717.jpg" loading="lazy" alt="actors Poster 47">
+            <div class="product-info">
+                <div class="product-title">actors Poster 47</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+            <img src="actors/c7332262388df82c1c54a870cc3f3e8b (1).jpg" loading="lazy" alt="actors Poster 48">
+            <div class="product-info">
+                <div class="product-title">actors Poster 48</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+            <img src="actors/c8ed92b0d1e6c63552ab0287eea036cd.jpg" loading="lazy" alt="actors Poster 49">
+            <div class="product-info">
+                <div class="product-title">actors Poster 49</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="actors/cbc86cf419f0d0f8b501949173adc426.jpg" loading="lazy" alt="actors Poster 50">
+            <div class="product-info">
+                <div class="product-title">actors Poster 50</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="actors/cd50ca4332ed8346f9097935c7ceb810.jpg" loading="lazy" alt="actors Poster 51">
+            <div class="product-info">
+                <div class="product-title">actors Poster 51</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <img src="actors/d14e7872d011b8a011b0b64b127acaa2.jpg" loading="lazy" alt="actors Poster 52">
+            <div class="product-info">
+                <div class="product-title">actors Poster 52</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+            <img src="actors/d1bf7fa306d1ccd971107c1e021bb494.jpg" loading="lazy" alt="actors Poster 53">
+            <div class="product-info">
+                <div class="product-title">actors Poster 53</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+            <img src="actors/d1d48eb8536c14fe89b6b77b414263bc.jpg" loading="lazy" alt="actors Poster 54">
+            <div class="product-info">
+                <div class="product-title">actors Poster 54</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+            <img src="actors/d26d1fe74c8d12b75a3c55f977b972da.jpg" loading="lazy" alt="actors Poster 55">
+            <div class="product-info">
+                <div class="product-title">actors Poster 55</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="actors/d2f1d335947626e2d7444487dbb45b3a.jpg" loading="lazy" alt="actors Poster 56">
+            <div class="product-info">
+                <div class="product-title">actors Poster 56</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="actors/d5b78cce3ae38c4d5e96bb25ce093f9a.jpg" loading="lazy" alt="actors Poster 57">
+            <div class="product-info">
+                <div class="product-title">actors Poster 57</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <img src="actors/db4f365490de8adb91ba7048feeb8bd8.jpg" loading="lazy" alt="actors Poster 58">
+            <div class="product-info">
+                <div class="product-title">actors Poster 58</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+            <img src="actors/de13acaa4e4a1bb3455972978e3e60b1.jpg" loading="lazy" alt="actors Poster 59">
+            <div class="product-info">
+                <div class="product-title">actors Poster 59</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+            <img src="actors/df5598d53452c57d7b0c58a119ab96b7.jpg" loading="lazy" alt="actors Poster 60">
+            <div class="product-info">
+                <div class="product-title">actors Poster 60</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+            <img src="actors/e49cc91bdcd1c6e53140573b232db9a0.jpg" loading="lazy" alt="actors Poster 61">
+            <div class="product-info">
+                <div class="product-title">actors Poster 61</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="actors/e618f3ed766a01f9917cbabe64464330.jpg" loading="lazy" alt="actors Poster 62">
+            <div class="product-info">
+                <div class="product-title">actors Poster 62</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="actors/f168921e9c3848f5d3f554af7fd9a003.jpg" loading="lazy" alt="actors Poster 63">
+            <div class="product-info">
+                <div class="product-title">actors Poster 63</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <img src="actors/f473f2403d756181f014429c28f53625.jpg" loading="lazy" alt="actors Poster 64">
+            <div class="product-info">
+                <div class="product-title">actors Poster 64</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+            <img src="actors/f5290b30f0e9a0f5a657868021146c18.jpg" loading="lazy" alt="actors Poster 65">
+            <div class="product-info">
+                <div class="product-title">actors Poster 65</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+            <img src="actors/f6647e57b98e78e23170860a381dcdd2.jpg" loading="lazy" alt="actors Poster 66">
+            <div class="product-info">
+                <div class="product-title">actors Poster 66</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+            <img src="actors/f88b212b3296597180b6e9d140e7e49c.jpg" loading="lazy" alt="actors Poster 67">
+            <div class="product-info">
+                <div class="product-title">actors Poster 67</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="actors/f9516c5027b28577b845dcce7785ef38.jpg" loading="lazy" alt="actors Poster 68">
+            <div class="product-info">
+                <div class="product-title">actors Poster 68</div>
+                <div class="product-price">₹15</div>
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Order From Glocafy Posters ❤️</p>
+        
+        <div class="footer-icons">
+            <a href="https://instagram.com/glocafy.store" target="_blank" style="color: inherit; text-decoration: none;">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/9715556804" target="_blank" style="color: inherit; text-decoration: none;">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- CART OVERLAY -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <div class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></div>
+        </div>
+
+        <div class="cart-items" id="cartItems"></div>
+
+        <div class="cart-footer">
+            <div class="total-price">
+                <span>Total:</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="whatsapp-btn" onclick="checkoutWhatsapp()">
+                <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
+
+<!-- MENU OVERLAY -->
+<div class="mobile-menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+
+<!-- MENU SIDEBAR -->
+<div class="mobile-menu-sidebar" id="menuSidebar">
+    <div class="menu-header">
+        <h2>Menu</h2>
+        <div class="close-menu" onclick="toggleMenu()"><i class="fas fa-times"></i></div>
+    </div>
+    <div class="menu-items">
+        <div class="menu-item"><a href="index.html">Home</a></div>
+        <div class="menu-item has-dropdown" onclick="toggleDropdown(this)">
+            <span>Collections <i class="fas fa-chevron-down"></i></span>
+            <div class="dropdown-content">
+                <a href="cars.html">Cars</a>
+                <a href="actors.html">Actors</a>
+                <a href="series.html">Series</a>
+                <a href="devotional.html">Devotional</a>
+                <a href="hollywood.html">Hollywood</a>
+                <a href="games.html">Games</a>
+                <a href="football.html">Football</a>
+                <a href="cricket.html">Cricket</a>
+                <a href="anime.html">Anime</a>
+                <a href="motivational.html">Motivational</a>
+            </div>
+        </div>
+        <div class="menu-item"><a href="#">Help & Info</a></div>
+    </div>
+</div>
+
+</body>
+
+</html>
