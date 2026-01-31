@@ -21,8 +21,131 @@ window.onload = function () {
 
     // Add Instagram Notification to ALL pages
     addInstaNotification();
+
+    // Initialize Reviews Logic
+    initReviews();
 }
 
+function initReviews() {
+    // 1. Inject Review HTML if not present
+    if (!document.getElementById('reviewSection')) {
+        const reviewHTML = `
+        <div class="review-section" id="reviewSection">
+            <div class="section-title" data-aos="fade-right">Customer Reviews</div>
+            <div class="review-grid" id="reviewGrid">
+                <!-- Reviews populated here -->
+            </div>
+            <div style="text-align:center;">
+                <button class="write-review-btn" onclick="openReviewModal()">Write a Review</button>
+            </div>
+        </div>
+
+        <!-- REVIEW MODAL -->
+        <div class="review-modal-overlay" id="reviewModal">
+            <div class="review-modal">
+                <div class="modal-close" onclick="closeReviewModal()"><i class="fas fa-times"></i></div>
+                <h2 style="margin-bottom:20px; font-size:20px;">Write a Review</h2>
+                
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" id="reviewName" placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label>Rating</label>
+                    <select id="reviewRating">
+                        <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                        <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                        <option value="3">⭐⭐⭐ (3/5)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Review</label>
+                    <textarea id="reviewText" rows="4" placeholder="Loved the quality!"></textarea>
+                </div>
+
+                <button class="submit-review-btn" onclick="submitReview()">Submit Review</button>
+            </div>
+        </div>
+        `;
+
+        // Insert before footer
+        const footer = document.querySelector('footer');
+        if (footer) {
+            const div = document.createElement('div');
+            div.innerHTML = reviewHTML;
+            footer.parentNode.insertBefore(div, footer);
+        }
+    }
+
+    // 2. Load Reviews
+    loadReviews();
+}
+
+function loadReviews() {
+    let reviews = JSON.parse(localStorage.getItem('glocafy_reviews')) || [];
+
+    // Default Mock Reviews if empty
+    if (reviews.length === 0) {
+        reviews = [
+            { name: "Rahul S.", rating: 5, text: "Amazing quality posters! The matte finish is perfect." },
+            { name: "Priya K.", rating: 5, text: "Fast delivery and great packaging. Will order again!" },
+            { name: "Amit J.", rating: 4, text: "Good collection but want more gaming posters." }
+        ];
+        localStorage.setItem('glocafy_reviews', JSON.stringify(reviews));
+    }
+
+    const grid = document.getElementById('reviewGrid');
+    if (grid) {
+        grid.innerHTML = '';
+        reviews.forEach(review => {
+            const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+            const card = `
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">${review.name}</span>
+                        <span class="review-stars">${stars}</span>
+                    </div>
+                    <div class="review-text">"${review.text}"</div>
+                </div>
+            `;
+            grid.innerHTML += card;
+        });
+    }
+}
+
+function openReviewModal() {
+    document.getElementById('reviewModal').classList.add('open');
+}
+
+function closeReviewModal() {
+    document.getElementById('reviewModal').classList.remove('open');
+}
+
+function submitReview() {
+    const name = document.getElementById('reviewName').value;
+    const rating = parseInt(document.getElementById('reviewRating').value);
+    const text = document.getElementById('reviewText').value;
+
+    if (!name || !text) {
+        alert("Please fill all fields!");
+        return;
+    }
+
+    const reviews = JSON.parse(localStorage.getItem('glocafy_reviews')) || [];
+    reviews.unshift({ name, rating, text }); // Add to top
+    localStorage.setItem('glocafy_reviews', JSON.stringify(reviews));
+
+    loadReviews();
+    closeReviewModal();
+
+    // Clear form
+    document.getElementById('reviewName').value = '';
+    document.getElementById('reviewText').value = '';
+
+    alert("Thank you for your review!");
+}
 function addInstaNotification() {
     const notif = document.createElement('a');
     notif.href = "https://instagram.com/glocafy.store";
@@ -104,13 +227,28 @@ function loadProductPage() {
     if (imgSrc) document.getElementById('mainProductImg').src = imgSrc;
     if (title) document.getElementById('productTitle').innerText = title;
 
-    // Remove Size Selector for Polaroids
+    // Remove Size Selector for Polaroids and Update Price
     if (title && title.toLowerCase().includes('polaroid')) {
         const sizeSelector = document.querySelector('.size-selector');
         if (sizeSelector) sizeSelector.style.display = 'none';
 
-        // Also update description if needed, or hide GSM info? 
-        // For now just hiding size as requested.
+        // Update Price for Polaroids
+        const currentPriceEl = document.querySelector('.current-price');
+        const originalPriceEl = document.querySelector('.original-price');
+
+        if (title.toLowerCase().includes('50 set')) {
+            if (currentPriceEl) currentPriceEl.innerText = '₹299';
+            if (originalPriceEl) originalPriceEl.innerText = '₹499';
+        } else if (title.toLowerCase().includes('25 set')) {
+            if (currentPriceEl) currentPriceEl.innerText = '₹199';
+            if (originalPriceEl) originalPriceEl.innerText = '₹399';
+        }
+    } else {
+        // Standard Poster Price
+        const currentPriceEl = document.querySelector('.current-price');
+        const originalPriceEl = document.querySelector('.original-price');
+        if (currentPriceEl) currentPriceEl.innerText = '₹75';
+        if (originalPriceEl) originalPriceEl.innerText = '₹99';
     }
 
     // Populate Suggested Products (Random/Static for now)
