@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Glocafy</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- LOADER -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="menu-icon"><i class="fas fa-bars"></i></div>
+
+        <a href="index.html" class="logo-area">
+            <div class="logo"></div>
+            <div class="store-name">Glocafy Posters</div>
+        </a>
+
+        <div class="cart-box" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <div class="cart-count" id="cartCount">0</div>
+        </div>
+
+    </nav>
+
+    <!-- PRODUCT DETAILS CONTAINER -->
+    <div class="product-details-container">
+
+        <!-- Left: Image -->
+        <div class="product-left" data-aos="fade-right">
+            <img id="mainProductImg" src="" alt="Product Image">
+        </div>
+
+        <!-- Right: Info -->
+        <div class="product-right" data-aos="fade-left">
+            <h1 id="productTitle">Poster Title</h1>
+
+            <div class="product-meta">
+                <span class="stock-status">In Stock</span>
+                <span class="rating">⭐⭐⭐⭐⭐ (4.9)</span>
+            </div>
+
+            <div class="product-price-box">
+                <span class="original-price">₹299</span>
+                <span class="current-price">₹15</span>
+                <span class="discount-badge">95% OFF</span>
+            </div>
+
+            <div class="product-offers">
+                <div class="offer-item">
+                    <i class="fas fa-tag"></i> Buy 5 Get 1 Free
+                </div>
+                <div class="offer-item">
+                    <i class="fas fa-shipping-fast"></i> Free Delivery on orders over ₹499
+                </div>
+            </div>
+
+            <!-- Size Selector -->
+            <div class="size-selector">
+                <h3>Select Size</h3>
+                <div class="sizes">
+                    <div class="size-option active" onclick="selectSize(this)">A4 (Standard)</div>
+                    <div class="size-option" onclick="selectSize(this)">A3 (Large)</div>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="action-buttons">
+                <button class="add-cart-btn-large" onclick="addProductToCartFromPage()">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </button>
+                <button class="whatsapp-buy-btn" onclick="buyNowWhatsApp()">
+                    <i class="fab fa-whatsapp"></i> Buy on WhatsApp
+                </button>
+            </div>
+
+            <div class="product-description">
+                <h3>About this Poster</h3>
+                <p>High-quality print on premium 300GSM paper. Perfect for wall decor, study rooms, and gifting.
+                    Water-resistant and vibrant colors that last long.</p>
+                <ul>
+                    <li>Finish: Matte / Glossy</li>
+                    <li>Paper Quality: 300GSM Premium</li>
+                    <li>Size: A4 (8.3 x 11.7 inches)</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SUGGESTED PRODUCTS -->
+    <div class="section-title">You May Also Like</div>
+
+    <div class="product-grid" id="suggestedProducts">
+        <!-- Javascript will populate this -->
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Order From Glocafy Posters ❤️</p>
+        <div class="footer-icons">
+            <a href="https://instagram.com/glocafy.store" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/9715556804" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+
+    <!-- CART SIDEBAR (Reused) -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <!-- Same cart structure -->
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <div class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="total-price">
+                <span>Total:</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="whatsapp-btn" onclick="checkoutWhatsapp()">
+                <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- MENU SIDEBAR -->
+    <div class="mobile-menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+    <div class="mobile-menu-sidebar" id="menuSidebar">
+        <div class="menu-header">
+            <h2>Menu</h2>
+            <div class="close-menu" onclick="toggleMenu()"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="menu-items">
+            <div class="menu-item"><a href="index.html">Home</a></div>
+            <div class="menu-item has-dropdown" onclick="toggleDropdown(this)">
+                <span>Collections <i class="fas fa-chevron-down"></i></span>
+                <div class="dropdown-content">
+                    <a href="cars.html">Cars</a>
+                    <a href="actors.html">Actors</a>
+                    <a href="series.html">Series</a>
+                    <a href="devotional.html">Devotional</a>
+                    <a href="hollywood.html">Hollywood</a>
+                    <a href="games.html">Games</a>
+                    <a href="football.html">Football</a>
+                    <a href="cricket.html">Cricket</a>
+                    <a href="anime.html">Anime</a>
+                    <a href="motivational.html">Motivational</a>
+                </div>
+            </div>
+            <div class="menu-item"><a href="#">Help & Info</a></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

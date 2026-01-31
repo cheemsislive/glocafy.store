@@ -8,6 +8,93 @@ window.onload = function () {
 
     // Initialize Hero Slider
     initHeroSlider();
+
+    // Logic for Single Product Page
+    if (window.location.pathname.includes('product.html')) {
+        loadProductPage();
+    } else {
+        // Logic for Collection Pages to make Images Clickable
+        makeImagesClickable();
+    }
+}
+
+function makeImagesClickable() {
+    const cards = document.querySelectorAll('.product-card');
+    cards.forEach(card => {
+        const img = card.querySelector('img');
+        const title = card.querySelector('.product-title').innerText;
+        // const price = ... ignored
+
+        // Make the image container clickable
+        // We override the click to go to product page
+        // But keep "Add to Cart" button working separately
+
+        img.style.cursor = "pointer";
+        img.addEventListener('click', () => {
+            const imgSrc = img.getAttribute('src');
+            // Navigate
+            window.location.href = `product.html?image=${encodeURIComponent(imgSrc)}&title=${encodeURIComponent(title)}`;
+        });
+    });
+}
+
+function loadProductPage() {
+    const params = new URLSearchParams(window.location.search);
+    const imgSrc = params.get('image');
+    const title = params.get('title');
+
+    if (imgSrc) document.getElementById('mainProductImg').src = imgSrc;
+    if (title) document.getElementById('productTitle').innerText = title;
+
+    // Populate Suggested Products (Random/Static for now)
+    const suggestedContainer = document.getElementById('suggestedProducts');
+    if (suggestedContainer) {
+        // Hardcoded generic suggestion list
+        const suggestions = [
+            { img: 'cars/00acefa25971025f8e900e39fcac1ff7.jpg', title: 'Car Poster' },
+            { img: 'anime/061d0886b23129dfb971874d079d9112.jpg', title: 'Anime Poster' },
+            { img: 'devotional/0e9fe24bc5bd40ec9d220b7abcf9e61c.jpg', title: 'Devotional Poster' },
+            { img: 'games/1911f47b607a03fd9554319c04c80a4f.jpg', title: 'Game Poster' }
+        ];
+
+        suggestions.forEach(item => {
+            const html = `
+                <div class="product-card">
+                    <img src="${item.img}" style="cursor:pointer" onclick="window.location.href='product.html?image=${encodeURIComponent(item.img)}&title=${encodeURIComponent(item.title)}'">
+                    <div class="product-info">
+                        <div class="product-title">${item.title}</div>
+                         <div class="product-price">₹15</div>
+                        <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+             `;
+            suggestedContainer.innerHTML += html;
+        });
+    }
+}
+
+function selectSize(element) {
+    document.querySelectorAll('.size-option').forEach(el => el.classList.remove('active'));
+    element.classList.add('active');
+}
+
+function addProductToCartFromPage() {
+    const title = document.getElementById('productTitle').innerText;
+    const img = document.getElementById('mainProductImg').src;
+
+    cart.push({ title: title, price: 0, img: img });
+    updateCart();
+    // alert("Added to Cart!");
+    toggleCart(); // Open cart to confirm
+}
+
+function buyNowWhatsApp() {
+    const title = document.getElementById('productTitle').innerText;
+    const size = document.querySelector('.size-option.active').innerText;
+
+    const message = `Hello, I want to buy:\n\nPoster: ${title}\nSize: ${size}\n\nPlease confirm availability.`;
+    const phoneNumber = "9715556804";
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
 }
 
 /* HERO SLIDER LOGIC */
