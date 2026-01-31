@@ -9,7 +9,7 @@ window.onload = function () {
     // Initialize Hero Slider
     initHeroSlider();
 
-    // Logic for Single Product Page
+    // Logic for Collection Pages to make Images Clickable
     if (window.location.pathname.includes('product.html')) {
         loadProductPage();
     } else {
@@ -18,6 +18,24 @@ window.onload = function () {
         // Update cards with Sale tag, Price and Buy Button
         updateProductCards();
     }
+
+    // Add Instagram Notification to ALL pages
+    addInstaNotification();
+}
+
+function addInstaNotification() {
+    const notif = document.createElement('a');
+    notif.href = "https://instagram.com/glocafy.store";
+    notif.target = "_blank";
+    notif.className = "insta-notification";
+
+    // Using FontAwesome icon for simplicity, or could use an img
+    notif.innerHTML = `
+        <i class="fab fa-instagram" style="font-size: 20px; color: #E1306C;"></i>
+        <span>Follow us on Instagram ❤️</span>
+    `;
+
+    document.body.appendChild(notif);
 }
 
 function makeImagesClickable() {
@@ -69,9 +87,9 @@ function updateProductCards() {
             buyBtn.className = 'buy-btn';
             buyBtn.innerText = 'Buy Now';
             buyBtn.onclick = function () {
-                const message = `Hello, I want to buy:\n\nPoster: ${title}\nPrice: ₹75\n\nPlease confirm availability.`;
-                const phoneNumber = "9715556804";
-                window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+                // Redirect to Product Details Page instead of WhatsApp
+                const imgSrc = card.querySelector('img').getAttribute('src');
+                window.location.href = `product.html?image=${encodeURIComponent(imgSrc)}&title=${encodeURIComponent(title)}`;
             };
             info.appendChild(buyBtn);
         }
@@ -115,7 +133,7 @@ function loadProductPage() {
                         <div class="product-title">${item.title}</div>
                          <div class="product-price"><span class="original-price-card">₹99</span> ₹75</div>
                         <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
-                        <button class="buy-btn" onclick="window.open('https://wa.me/9715556804?text=I want to buy ${encodeURIComponent(item.title)}', '_blank')">Buy Now</button>
+                        <button class="buy-btn" onclick="window.location.href='product.html?image=${encodeURIComponent(item.img)}&title=${encodeURIComponent(item.title)}'">Buy Now</button>
                     </div>
                 </div>
              `;

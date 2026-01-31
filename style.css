@@ -1098,3 +1098,41 @@ footer {
         flex-direction: column;
     }
 }
+
+/* INSTAGRAM NOTIFICATION */
+.insta-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 9999;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid #f0f0f0;
+    animation: floatInsta 3s ease-in-out infinite;
+}
+
+.insta-icon-img {
+    width: 20px;
+    height: 20px;
+}
+
+@keyframes floatInsta {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
