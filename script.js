@@ -99,10 +99,11 @@ function loadReviews() {
     const grid = document.getElementById('reviewGrid');
     if (grid) {
         grid.innerHTML = '';
-        reviews.forEach(review => {
+        reviews.forEach((review, index) => {
             const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
             const card = `
                 <div class="review-card">
+                    <i class="fas fa-trash delete-review-btn" onclick="deleteReview(${index})" title="Delete Review"></i>
                     <div class="review-header">
                         <span class="reviewer-name">${review.name}</span>
                         <span class="review-stars">${stars}</span>
@@ -112,6 +113,15 @@ function loadReviews() {
             `;
             grid.innerHTML += card;
         });
+    }
+}
+
+function deleteReview(index) {
+    if (confirm("Are you sure you want to delete this review?")) {
+        let reviews = JSON.parse(localStorage.getItem('glocafy_reviews')) || [];
+        reviews.splice(index, 1);
+        localStorage.setItem('glocafy_reviews', JSON.stringify(reviews));
+        loadReviews();
     }
 }
 
