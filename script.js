@@ -287,6 +287,24 @@ function loadProductPage() {
 function selectSize(element) {
     document.querySelectorAll('.size-option').forEach(el => el.classList.remove('active'));
     element.classList.add('active');
+
+    // Update Price based on Size
+    const size = element.innerText.trim();
+    const currentPriceEl = document.querySelector('.current-price');
+    const originalPriceEl = document.querySelector('.original-price');
+
+    if (currentPriceEl && originalPriceEl) {
+        if (size.includes('A4')) {
+            currentPriceEl.innerText = '₹75';
+            originalPriceEl.innerText = '₹99';
+        } else if (size.includes('A5')) {
+            currentPriceEl.innerText = '₹50';
+            originalPriceEl.innerText = '₹75';
+        } else if (size.includes('A6')) {
+            currentPriceEl.innerText = '₹20';
+            originalPriceEl.innerText = '₹49';
+        }
+    }
 }
 
 function addProductToCartFromPage() {
@@ -302,8 +320,9 @@ function addProductToCartFromPage() {
 function buyNowWhatsApp() {
     const title = document.getElementById('productTitle').innerText;
     const size = document.querySelector('.size-option.active').innerText;
+    const price = document.querySelector('.current-price').innerText;
 
-    const message = `Hello, I want to buy:\n\nPoster: ${title}\nSize: ${size}\n\nPlease confirm availability.`;
+    const message = `Hello, I want to buy:\n\nPoster: ${title}\nSize: ${size}\nPrice: ${price}\n\nPlease confirm availability.`;
     const phoneNumber = "9715556804";
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
 }
