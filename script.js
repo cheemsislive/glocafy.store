@@ -87,14 +87,8 @@ function loadReviews() {
     let reviews = JSON.parse(localStorage.getItem('glocafy_reviews')) || [];
 
     // Default Mock Reviews if empty
-    if (reviews.length === 0) {
-        reviews = [
-            { name: "Rahul S.", rating: 5, text: "Amazing quality posters! The matte finish is perfect." },
-            { name: "Priya K.", rating: 5, text: "Fast delivery and great packaging. Will order again!" },
-            { name: "Amit J.", rating: 4, text: "Good collection but want more gaming posters." }
-        ];
-        localStorage.setItem('glocafy_reviews', JSON.stringify(reviews));
-    }
+    // if (reviews.length === 0) { ... } // DISABLED
+
 
     const grid = document.getElementById('reviewGrid');
     if (grid) {
