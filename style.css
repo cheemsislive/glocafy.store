@@ -13,6 +13,8 @@ body {
     color: #1a1a1a;
     overflow-x: hidden;
     /* Prevent horizontal scroll */
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 /* LOADER */
@@ -199,6 +201,9 @@ nav {
     position: relative;
     overflow: hidden;
     margin-bottom: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hero-track {
